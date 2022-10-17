@@ -4,7 +4,7 @@
         let stock = document.getElementById("accion").value;
         let periodo = document.getElementById("periodo").value;
         let frecuencia = document.getElementById("frecuencia").value;
-
+        
         function getData(url) {
             return Promise.resolve(
                 fetch(url)
@@ -15,7 +15,7 @@
         getData(url).then(data => {
             let data2 = data["Time Series (30min)"];
             if (!data2) {
-                alert("ingrese accion valida")
+              swal('ERROR', 'Ingrese un texto válido', 'error')
             } else {
                 let fechas = []
                 let valores = []
