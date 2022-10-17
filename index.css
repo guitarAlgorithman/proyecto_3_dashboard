@@ -18,7 +18,7 @@ body{
 #boton{
     background-image: linear-gradient(to left, #666666, #414141);
     font-weight: bold;
-    border-color: #414141;
+    border-color: #3d3d3d;
 }
 
 .conteiner-fluid{
