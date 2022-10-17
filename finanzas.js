@@ -1,10 +1,23 @@
 (() => {
     const boton = document.getElementById("boton")
+    let periodo = document.getElementById("periodo")
+    periodo.addEventListener("change",()=>{
+      if(periodo.value=="Intraday"){
+        frecuencia.disabled=false
+      }
+      else{
+        frecuencia.disabled=true
+      }
+    })
+
+
+
+    
     boton.addEventListener("click", () => {
-        let stock = document.getElementById("accion");
+        document.getElementById("graficoAcciones").innerHTML=""
+        let stock = document.getElementById("accion").value;        
+        let frecuencia = document.getElementById("frecuencia").value;        
         let periodo = document.getElementById("periodo").value;
-        let frecuencia = document.getElementById("frecuencia").value;
-        frecuencia.disabled = true;
 
         function getData(url) {
             return Promise.resolve(
@@ -12,31 +25,57 @@
                     .then(res => res.json())
             )
         }
-        
-        if(periodo=="Diario"){
-          let url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock.value}&apikey=V3M13AGJZDLJ7SM0`;
-        }
-        else{
-          if(periodo=="Intraday"){
-            let url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stock.value}&interval=30min&apikey=V3M13AGJZDLJ7SM0`;
-            frecuencia.disabled = false;
+        getUrl=(stock,per,freq)=>{
+          //¿Como se esconde?
+          let token='&apikey=V3M13AGJZDLJ7SM0';
+          let urlBase="https://www.alphavantage.co/query?function=";
+          if(per=="Diario"){
+            let periodo="TIME_SERIES_DAILY"
+            return [`${urlBase}${periodo}&symbol=${stock}${token}`,"Time Series (Daily)"]
+    
           }
+          else if(per=="Mensual"){
+            let periodo="TIME_SERIES_MONTHLY"
+            return [`${urlBase}${periodo}&symbol=${stock}${token}`,"Monthly Time Series"]
+          }
+          else{
+            let periodo="TIME_SERIES_INTRADAY"
+            if(freq=="15 Minutos"){
+              frecuencia="&interval=15min"
+              return [`${urlBase}${periodo}&symbol=${stock}${frecuencia}${token}`,"Time Series (15min)"]
+            }
+            else if(freq=="30 Minutos"){
+              let frecuencia="&interval=30min"
+              //Time Series (30min)
+    
+              return [`${urlBase}${periodo}&symbol=${stock}${frecuencia}${token}`,"Time Series (30min)"]
+            }
+            else{
+              let frecuencia="&interval=60min"
+              return [`${urlBase}${periodo}&symbol=${stock}${frecuencia}${token}`,"Time Series (60min)"]
+            }
+          }
+    
+    
         }
-        
-        getData(url1).then(data => {
-            let data2 = data["Time Series (30min)"];
-            if (!data2) {
+        //let url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stock}&interval=30min&apikey=V3M13AGJZDLJ7SM0`;
+        let url=getUrl(stock,periodo,frecuencia)
+        console.log(url[0])
+        getData(url[0]).then(data => {
+          console.log(data);
+
+            if (!data[url[1]]) {
                 alert("ingrese accion valida")
             } else {
                 let fechas = []
                 let valores = []
-                for (x in data2) {
+                for (x in data[url[1]]) {
                   fechas.push(x.split(" ")[0])
                   valores.push({ 'x':x.split(" "),
-                   'y': [parseFloat(data2[x]['1. open']),
-                    parseFloat(data2[x]['2. high']),
-                     parseFloat(data2[x]['3. low']),
-                      parseFloat(data2[x]['4. close'])]
+                   'y': [parseFloat(data[url[1]][x]['1. open']),
+                    parseFloat(data[url[1]][x]['2. high']),
+                     parseFloat(data[url[1]][x]['3. low']),
+                      parseFloat(data[url[1]][x]['4. close'])]
                     })
                 }
                 var options = {
@@ -62,6 +101,7 @@
                   };
                   let chart = new ApexCharts(document.getElementById("graficoAcciones"), options);
                   chart.render();
+                  
             }
 
         })
