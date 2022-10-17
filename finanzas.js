@@ -1,9 +1,10 @@
 (() => {
     const boton = document.getElementById("boton")
     boton.addEventListener("click", () => {
-        let stock = document.getElementById("accion").value;
+        let stock = document.getElementById("accion");
         let periodo = document.getElementById("periodo").value;
         let frecuencia = document.getElementById("frecuencia").value;
+        frecuencia.disabled = true;
 
         function getData(url) {
             return Promise.resolve(
@@ -11,8 +12,18 @@
                     .then(res => res.json())
             )
         }
-        let url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stock}&interval=30min&apikey=V3M13AGJZDLJ7SM0`;
-        getData(url).then(data => {
+        
+        if(periodo=="Diario"){
+          let url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock.value}&apikey=V3M13AGJZDLJ7SM0`;
+        }
+        else{
+          if(periodo=="Intraday"){
+            let url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stock.value}&interval=30min&apikey=V3M13AGJZDLJ7SM0`;
+            frecuencia.disabled = false;
+          }
+        }
+        
+        getData(url1).then(data => {
             let data2 = data["Time Series (30min)"];
             if (!data2) {
                 alert("ingrese accion valida")
