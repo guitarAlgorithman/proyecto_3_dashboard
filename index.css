@@ -1,8 +1,22 @@
 body{
-    background-color: aliceblue;
+    background-image: linear-gradient(to left, #ffffff, #f2f2f2);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-header{
-    background: rgb(222, 9, 9);
-    height: 200px;
+.navbar{
+    background-image: linear-gradient(to left, #666666, #414141);
+}
+
+.alphaNav{
+    padding-left: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: aliceblue;
+ 
+}
+
+#boton{
+    background-image: linear-gradient(to left, #666666, #414141);
+    font-weight: bold;
+    border-color: #414141;
 }
