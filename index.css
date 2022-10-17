@@ -22,11 +22,11 @@ body{
 }
 
 .conteiner-fluid{
+    height: 350px;
     margin: 50px 30px;
     padding: 10px;
-    background-color: #e5e5e5;
+    background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 10px 20px #a0a0a0,
                 0 0 0 2px #bcbcbc inset;
-
 }
