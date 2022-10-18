@@ -1,7 +1,7 @@
 body{
-    /* background-image: linear-gradient(to left, #ffffff, #f2f2f2); */
+    background-image: linear-gradient(to left, #e7e7e7, #c5c5c5);
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background: #272727;
+    /* background: #dbdada; */
 }
 h1{
     color: #bcbcbc;
@@ -24,23 +24,19 @@ h1{
     border-color: #3d3d3d;
 }
 
-.conteiner-fluid{
+.conteiner-fluid, #graficoAccionesProyectado{
+    width: 800px;
     height: 350px;
-    color: #db1818;
     margin: 50px 30px;
     padding: 10px;
-    background-image: linear-gradient(to left, #666666, #414141);
+    background-image: linear-gradient(to left, #ffffff, #d8d8d8);
     border-radius: 15px;
     box-shadow: 0 10px 20px #a0a0a0,
                 0 0 0 2px #bcbcbc inset;        
 }
 
-.graficoAcciones{
-   background: #bcbcbc;
-}
-
 .inputs{
-    background-image: linear-gradient(to left, #666666, #414141);
+    background-image: linear-gradient(to left, #ffffff, #d8d8d8);
     border-radius: 15px;
     box-shadow: 0 10px 20px #a0a0a0,
                 0 0 0 2px #bcbcbc inset;
@@ -50,7 +46,7 @@ h1{
     'b c';
     width: 480px;
     padding: 20px;
-    color: #bcbcbc;
+    color: #2e2e2e;
 
 }
 
@@ -60,7 +56,7 @@ h1{
 }
 
 .periodo{
-    width: 115px;
+    width: 175px;
     grid-area: b;
 }
 
@@ -75,15 +71,13 @@ h1{
     font-weight: bold;
 }
 
-
-
 .accionLabel, .periodoLabel, .frecuenciaLabel{
     padding-right: 10px;
     padding-top: 6px;
 }
 
 .periodoTexto{
-    width: 150px;    
+    width: 165px;    
 }
 
 .frecuenciaTexto{
@@ -96,6 +90,3 @@ h1{
     padding-bottom: 15px;
 }
 
-.graficoAccionesProyectado{
-    background: #bcbcbc;
- }
