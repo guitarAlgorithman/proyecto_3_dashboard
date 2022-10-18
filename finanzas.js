@@ -65,7 +65,7 @@
           console.log(data);
 
             if (!data[url[1]]) {
-                alert("ingrese accion valida")
+               swal('ERROR', 'Ingrese un texto válido', 'error')
             } else {
                 let fechas = []
                 let valores = []
