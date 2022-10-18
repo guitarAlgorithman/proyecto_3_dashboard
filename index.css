@@ -1,8 +1,11 @@
 body{
-    background-image: linear-gradient(to left, #ffffff, #f2f2f2);
+    /* background-image: linear-gradient(to left, #ffffff, #f2f2f2); */
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background: #272727;
 }
-
+h1{
+    color: #bcbcbc;
+}
 .navbar{
     background-image: linear-gradient(to left, #666666, #414141);
 }
@@ -23,10 +26,72 @@ body{
 
 .conteiner-fluid{
     height: 350px;
+    color: #db1818;
     margin: 50px 30px;
     padding: 10px;
-    background-color: #ffffff;
+    background-image: linear-gradient(to left, #666666, #414141);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px #a0a0a0,
+                0 0 0 2px #bcbcbc inset;        
+}
+
+.graficoAcciones{
+   background: #bcbcbc;
+}
+
+.inputs{
+    background-image: linear-gradient(to left, #666666, #414141);
     border-radius: 15px;
     box-shadow: 0 10px 20px #a0a0a0,
                 0 0 0 2px #bcbcbc inset;
+    display: grid;
+    grid-template-areas: 
+    'a d'
+    'b c';
+    width: 480px;
+    padding: 20px;
+    color: #bcbcbc;
+
+}
+
+.accion{
+    width: 300px;
+    grid-area: a;
+}
+
+.periodo{
+    width: 115px;
+    grid-area: b;
+}
+
+.frecuencia{
+    width: 230px;
+    grid-area: c;
+    margin-left: -133px;
+}
+
+.accionTexto, .periodoTexto, .frecuenciaTexto{
+    display: flex;
+    font-weight: bold;
+}
+
+
+
+.accionLabel, .periodoLabel, .frecuenciaLabel{
+    padding-right: 10px;
+    padding-top: 6px;
+}
+
+.periodoTexto{
+    width: 150px;    
+}
+
+.frecuenciaTexto{
+    width: 215px; 
+}
+
+.botonLabel{
+    grid-area: d;
+    width: 100%;
+    padding-bottom: 15px;
 }

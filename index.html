@@ -30,40 +30,39 @@
 
     <div class="container-fluid">
         <div class="d-flex justify-content-center">
-            <div class="row">
-                <div class="col-lg-6 col-12 my-auto">
-                    <div class="mb-3">
-                        <label for="" class="form-label">Acción</label>
+            <div class="row inputs">
+                <div class="col-lg-6 col-12 my-auto accion">
+                    <div class="mb-3 accionTexto">
+                        <label for="" class="form-label accionLabel">Acción</label>
                         <input type="text" class="form-control" name="" id="accion" placeholder="">
                     </div>
                 </div>
-                <div class="col-lg-2 col-12 my-auto">
-                    <div class="mb-3">
-                        <label for="periodo">Periodo</label>
-                        <select class="form-control" id="periodo">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-12 my-auto">
-                    <div class="mb-3">
-                        <label for="frecuencia">Frecuencia</label>
-                        <select class="form-control" id="frecuencia">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-12 my-auto">
+
+                <div class="col-lg-2 col-12 my-auto botonLabel">
                     <a name="" id="boton" class="btn btn-primary" href="#" role="button">Buscar</a>
                 </div>
+
+                <div class="col-lg-2 col-12 my-auto periodo">
+                    <div class="mb-3 periodoTexto">
+                        <label for="periodo" class="periodoLabel">Periodo</label>
+                        <select class="form-control" id="periodo">
+                            <option>Diario</option>
+                            <option>Mensual</option>
+                            <option>Intraday</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-12 my-auto frecuencia">
+                    <div class="mb-3 frecuenciaTexto">
+                        <label for="frecuencia" class="frecuenciaLabel">Frecuencia</label>
+                        <select class="form-control" id="frecuencia">
+                            <option>15 Minutos</option>
+                            <option>30 Minutos</option>
+                            <option>60 Minutos</option>
+                        </select>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
