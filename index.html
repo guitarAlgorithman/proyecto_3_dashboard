@@ -9,6 +9,7 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./index.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
     <title>Dashboard - Acciones</title>
 </head>
 
@@ -23,7 +24,7 @@
                  width="40" height="40"
                     class="d-inline-block align-content-center">
             </a> -->
-            
+
         </nav>
         <h1>Dashboard Proyecto 3</h1>
     </header>
@@ -62,13 +63,14 @@
                         </select>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
 
     <div class="conteiner-fluid">
         <div id="graficoAcciones"></div>
+        <div id="graficoAccionesProyectado"></div>
 
     </div>
 
@@ -79,6 +81,13 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./finanzas.js"></script>
+    <!-- Import TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <!-- Import tfjs-vis -->
+    
+    <!-- Import the main script file -->
+    <script src="script.js"></script>
+
 </body>
 
 </html>

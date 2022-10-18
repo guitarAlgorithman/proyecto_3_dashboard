@@ -60,9 +60,9 @@
       }
       //let url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stock}&interval=30min&apikey=V3M13AGJZDLJ7SM0`;
       let url=getUrl(stock,periodo,frecuencia)
-      console.log(url[0])
+      //console.log(url[0])
       getData(url[0]).then(data => {
-        console.log(data);
+        //console.log(data);
 
           if (!data[url[1]]) {
             swal('ERROR', 'Ingrese un texto válido', 'error')
@@ -78,6 +78,9 @@
                     parseFloat(data[url[1]][x]['4. close'])]
                   })
               }
+              fechas=fechas.reverse(x=>x)
+              valores=valores.reverse(x=>x)
+              
               var options = {
                   series: [{
                   data: valores
