@@ -27,22 +27,23 @@ h1{
 .contenedorAPI{
         display: flex;
         flex-direction: row;
-        padding-top: 100px;
+        padding-top: 50px;
         gap: 50px;
         justify-content: center;
+        height: 450px;
 }
 
 #graficoAccionesProyectado, #graficoAcciones{
     width: 800px;
     padding: 25px;
-    background-image: linear-gradient(to left, #ffffff, #ebebeb);
+    background: #f3f3f3;
     border-radius: 15px;
     box-shadow: 0 10px 20px #a0a0a0,
                 0 0 0 2px #bcbcbc inset;  
 }
 
 .inputs{
-    background-image: linear-gradient(to left, #ffffff, #d8d8d8);
+    background-image: linear-gradient(to left, #ffffff, #e2e2e2);
     border-radius: 15px;
     box-shadow: 0 10px 20px #a0a0a0,
                 0 0 0 2px #bcbcbc inset;
@@ -97,18 +98,26 @@ h1{
 }
 
 @media screen and (max-width: 1200px){
-    #graficoAccionesProyectado, #graficoAcciones{
-        background: rgb(192, 35, 35);
-    }
     .contenedorAPI{
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 }
 
 @media screen and (max-width: 990px){
+    #graficoAccionesProyectado, #graficoAcciones{
+        width: 730px;
+    }
 
 }
 @media screen and (max-width: 770px){
+    #graficoAccionesProyectado, #graficoAcciones{
+        
+        width: 450px;
+    }
+    .inputs{
+        width: 450px;
+    }
 
 }
