@@ -15,8 +15,8 @@ cajaAPI.addEventListener("keyup", async () => {
 
     const listaSugerencias = [];
 
-// Esta es la caja que recibirá los simbolos sugeridos por la API.
-// Usé bootstrap, y el form quedó dentro del div de las lineas 36-43 del html.
+    // Esta es la caja que recibirá los simbolos sugeridos por la API.
+    // Usé bootstrap, y el form quedó dentro del div de las lineas 36-43 del html.
     const cajaSugerencias = document.getElementById("datalistOptions");
 
     const listaMatches = fetch(url)
@@ -25,6 +25,7 @@ cajaAPI.addEventListener("keyup", async () => {
         .then((lista) => {
 
             const arraySugerencias = lista.bestMatches;
+
             arraySugerencias.forEach((item) => {
                 const cadaSugerencia = (item);
                 const cadaSimbolo = (Object.values(cadaSugerencia)[0]);
@@ -37,17 +38,19 @@ cajaAPI.addEventListener("keyup", async () => {
                 cajaSugerencias.appendChild(newTag);
 
             })
-           
-})
+
+
+
+        })
 })
 
 //Esto es para borrar las sugerencias anteriores de la caja
 
-cajaAPI.addEventListener("focusout", async() => {
+cajaAPI.addEventListener("focusout", async () => {
     const cajaSugerencias = document.getElementById("datalistOptions");
 
     while (cajaSugerencias.firstChild) {
         cajaSugerencias.removeChild(cajaSugerencias.firstChild);
-      }
-    });
+    }
+});
 

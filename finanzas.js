@@ -11,7 +11,7 @@
   })
 
   boton.addEventListener("click", async () => {
-// Consigo  el nombre de la Empresa desde API 
+    // Consigo  el nombre de la Empresa desde API 
 
     let stock1 = document.getElementById("accion").value;
     let token = '&apikey=V3M13AGJZDLJ7SM0';
@@ -25,12 +25,12 @@
         return item.Name;
       });
 
-
-    
-
-
     document.getElementById("graficoAcciones").innerHTML = ""
+    document.getElementById("graficoAccionesProyectado").innerHTML = "cargando"
     let prop = await nombreEmpresa;
+    if(!prop){
+      prop="Activo Exótico";
+    }
     // Guardo el nombre de la empresa para usarlo en lína .118
 
     let stock = document.getElementById("accion").value;
@@ -124,9 +124,98 @@
         let chart = new ApexCharts(document.getElementById("graficoAcciones"), options);
         chart.render();
 
+        let y = [];
+        let xx = [];
+        let anterior;
+        let k = true;
+        let originales = []
+
+        for (x in data[url[1]]) {
+
+          if (k == true) {
+            anterior = parseFloat(data[url[1]][x]['4. close']);
+            originales.push({ 'x': x.split(" ")[0], 'y': anterior })
+            k = false;
+          } else {
+
+            xx.push(anterior);
+            y.push(parseFloat(data[url[1]][x]['4. close']));
+            originales.push({ 'x': x.split(" ")[0], 'y': parseFloat(data[url[1]][x]['4. close']) })
+            anterior = parseFloat(data[url[1]][x]['4. close']);
+          }
+
+        }
+        xx = xx.reverse(x => x);
+        y = y.reverse(y => y);
+
+        learnLinear = async (x, y) => {
+
+          const model = tf.sequential();
+          model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
+          model.compile({
+            loss: 'meanSquaredError',
+            optimizer: 'adamax'
+          });
+          const xs = tf.tensor2d(x, [x.length, 1]);
+          const ys = tf.tensor2d(y, [y.length, 1]);
+
+          await model.fit(xs, ys, { epochs: 450 });
+          if (!model) {
+            document.getElementById("graficoAccionesProyectado").innerHTML = "Error recargar página"
+            return 0
+          }
+          let forecast = [];
+
+
+          for (let i = 0; i < originales.length; i++) {
+
+            let tensor = model.predict(tf.tensor2d([originales[i].y], [1, 1]));
+            let valor = parseFloat(tensor.dataSync()[0]).toFixed(2);
+            forecast.push({ 'x': originales[i].x, 'y': valor });
+
+          }
+
+          let ultimo = forecast[0].y
+          console.log(ultimo);
+          let tensor = model.predict(tf.tensor2d([parseFloat(ultimo)], [1, 1]));
+          ultimo = parseFloat(tensor.dataSync()[0]).toFixed(2);
+
+          var optionss = {
+            series: [{
+              name: "Regresión Lineal",
+              data: forecast
+            }, {
+
+              name: "Valor Real Cierre",
+              data: originales
+            }
+            ],
+            chart: {
+              type: 'line',
+              height: 350
+            },
+            title: {
+              text: `Gráfico Regresión lineal ${prop}`,
+              align: 'center'
+            },
+            yaxis: {
+              tooltip: {
+                enabled: true
+              }
+            },
+            xaxis: {
+              type: 'datetime'
+            },
+          };
+          document.getElementById("graficoAccionesProyectado").innerHTML = ""
+          let chart2 = new ApexCharts(document.getElementById("graficoAccionesProyectado"), optionss);
+          chart2.render();
+
+          document.getElementById("proximo").innerHTML = `<p>El valor esperado promedio para mañana es: ${ultimo} USD </p>`
+        }
+        learnLinear(xx, y);
       }
 
     })
   })
-}
-)()
+})()
