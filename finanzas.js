@@ -25,12 +25,6 @@
         return item.Name;
       });
 
-    const printName = async () => {
-      const nombre = await nombreEmpresa;
-      console.log(nombre);
-    };
-
-    printName();
 
     
 
@@ -88,51 +82,51 @@
     getData(url[0]).then(data => {
       //console.log(data);
 
-          if (!data[url[1]]) {
-            swal('ERROR', 'Ingrese un texto válido', 'error')
-          } else {
-              let fechas = []
-              let valores = []
-              for (x in data[url[1]]) {
-                fechas.push(x.split(" ")[0])
-                valores.push({ 'x':x.split(" "),
-                 'y': [parseFloat(data[url[1]][x]['1. open']),
-                  parseFloat(data[url[1]][x]['2. high']),
-                   parseFloat(data[url[1]][x]['3. low']),
-                    parseFloat(data[url[1]][x]['4. close'])]
-                  })
-              }
-              fechas=fechas.reverse(x=>x)
-              valores=valores.reverse(x=>x)
-              
-              var options = {
-                  series: [{
-                  data: valores
-                }],
-                  chart: {
-                  type: 'candlestick',
-                  height: 350
-                },
-                title: {
-                  text: `Gráfico acción ${stock}`,
-                  align: 'center'
-                },
-                xaxis: {
-                  type: 'datetime'
-                },
-                yaxis: {
-                  tooltip: {
-                    enabled: true
-                  }
-                }
-                };
-                let chart = new ApexCharts(document.getElementById("graficoAcciones"), options);
-                chart.render();
-                
+      if (!data[url[1]]) {
+        swal('ERROR', 'Ingrese un texto válido', 'error')
+      } else {
+        let fechas = []
+        let valores = []
+        for (x in data[url[1]]) {
+          fechas.push(x.split(" ")[0])
+          valores.push({
+            'x': x.split(" "),
+            'y': [parseFloat(data[url[1]][x]['1. open']),
+            parseFloat(data[url[1]][x]['2. high']),
+            parseFloat(data[url[1]][x]['3. low']),
+            parseFloat(data[url[1]][x]['4. close'])]
+          })
+        }
+        fechas = fechas.reverse(x => x)
+        valores = valores.reverse(x => x)
+
+        var options = {
+          series: [{
+            data: valores
+          }],
+          chart: {
+            type: 'candlestick',
+            height: 350
+          },
+          title: {
+            text: `Gráfico acción ${prop}`,
+            align: 'center'
+          },
+          xaxis: {
+            type: 'datetime'
+          },
+          yaxis: {
+            tooltip: {
+              enabled: true
+            }
           }
+        };
+        let chart = new ApexCharts(document.getElementById("graficoAcciones"), options);
+        chart.render();
+
+      }
 
     })
   })
 }
 )()
-
