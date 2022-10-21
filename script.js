@@ -120,7 +120,7 @@
                 let chart2 = new ApexCharts(document.getElementById("graficoAccionesProyectado"), options);
                 chart2.render();
 
-                document.getElementById("proximo").innerHTML=`<p>El valor esperado para mañana es: ${ultimo} USD </p>`
+                document.getElementById("proximo").innerHTML=`<p>El valor esperado promedio para mañana es: ${ultimo} USD </p>`
                 //console.log(ultimo);
 
 
