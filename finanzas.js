@@ -94,6 +94,7 @@
                   align: 'center'
                 },
                 xaxis: {
+                  
                   type: 'datetime'
                 },
                 yaxis: {
