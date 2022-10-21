@@ -18,6 +18,18 @@ h1{
  
 }
 
+.bwhite{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 25px;
+    font-weight: bold;
+}
+
+.bdark{
+    background-image: linear-gradient(to left, #525252, #363636);
+    color: aliceblue;
+}
 #boton{
     background-image: linear-gradient(to left, #666666, #414141);
     font-weight: bold;
@@ -33,7 +45,7 @@ h1{
         height: 450px;
 }
 
-#graficoAccionesProyectado, #graficoAcciones{
+.graficoAccionesProyectado, .graficoAcciones{
     width: 800px;
     padding: 25px;
     background: #f3f3f3;
@@ -96,6 +108,18 @@ h1{
     width: 100%;
     padding-bottom: 15px;
 }
+
+body.darkmode{
+    background: #2e2e2e;
+    color: #c5c5c5;
+}
+
+.inputsDark, .graficoAccionesDark, .graficoAccionesProyectadoDark{
+    background-image: linear-gradient(to left, #6f6f6f, #686868);
+    color: #a5a5a5;
+
+}
+
 
 @media screen and (max-width: 1200px){
     .contenedorAPI{

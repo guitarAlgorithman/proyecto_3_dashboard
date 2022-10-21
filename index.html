@@ -13,17 +13,15 @@
     <title>Dashboard - Acciones</title>
 </head>
 
-<body>
+<body class="whiteMode">
 
     <header class="text-center">
 
         <nav class="navbar navbar-light">
             <p class="alphaNav">ALPHA VANTAGE API</p>
-            <!-- <a class="navbar-brand m-auto">
-                <img src="https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-vector-coins-icon-png-image_321025.jpg"
-                 width="40" height="40"
-                    class="d-inline-block align-content-center">
-            </a> -->
+            <div>
+                <button id="bdark" class="bwhite">Modo Oscuro</button>
+            </div>
 
         </nav>
         <h1>Dashboard Proyecto 3</h1>
@@ -31,7 +29,7 @@
 
     <div class="container-fluid contenedorInput">
         <div class="d-flex justify-content-center">
-            <div class="row inputs">
+            <div class="inputs">
                 <div class="col-lg-6 col-12 my-auto accion">
                     <div class="mb-3 accionTexto">
                         <label for="" class="form-label accionLabel">Acción</label>
@@ -69,8 +67,8 @@
     </div>
 
     <div class="container-fluid contenedorAPI">
-        <div id="graficoAcciones"></div>
-        <div id="graficoAccionesProyectado" ></div>
+        <div id="graficoAcciones" class="graficoAcciones"></div>
+        <div id="graficoAccionesProyectado" class="graficoAccionesProyectado" ></div>
 
     </div>
 
@@ -86,8 +84,9 @@
     <!-- Import tfjs-vis -->
     
     <!-- Import the main script file -->
-    <script src="script.js"></script>
-
+    <script src="./script.js"></script>
+    <script src="./darkMode.js"></script>
+    
 </body>
 
 </html>
