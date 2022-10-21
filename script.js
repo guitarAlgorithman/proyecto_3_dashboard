@@ -16,7 +16,7 @@
         // Guardo el nombre de la empresa para usarlo en lína .99
         let prop = await nombreEmpresa;
         let stock = document.getElementById("accion").value;
-        let token = '&apikey=V3M13AGJZDLJ7SM0';
+
         let urlBase = "https://www.alphavantage.co/query?function=";
         let periodo = "TIME_SERIES_DAILY"
         let url = [`${urlBase}${periodo}&symbol=${stock}${token}`, "Time Series (Daily)"]
