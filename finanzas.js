@@ -1,6 +1,11 @@
 (() => {
+
+  //Obtiene el elemento boton
   const boton = document.getElementById("boton")
+
+  //Obtiene el periodo... 
   let periodo = document.getElementById("periodo")
+  //y lo desactiva si la funcion no esta en intraday
   periodo.addEventListener("change", () => {
     if (periodo.value == "Intraday") {
       frecuencia.disabled = false
@@ -13,11 +18,12 @@
   boton.addEventListener("click", async () => {
     // Consigo  el nombre de la Empresa desde API 
 
-    let stock1 = document.getElementById("accion").value;
-    let token = '&apikey=V3M13AGJZDLJ7SM0';
-    let urlBase1 = "https://www.alphavantage.co/query?function=";
+    let stock = document.getElementById("accion").value;
+    let token = '&apikey=U34CX5I5PKMD40BK';
+    //V3M13AGJZDLJ7SM0
+    let urlBase = "https://www.alphavantage.co/query?function=";
     let info = "OVERVIEW"
-    let url1 = [`${urlBase1}${info}&symbol=${stock1}${token}`]
+    let url1 = [`${urlBase}${info}&symbol=${stock}${token}`]
 
     const nombreEmpresa = fetch(url1)
       .then((response) => response.json())
@@ -28,12 +34,12 @@
     document.getElementById("graficoAcciones").innerHTML = ""
     document.getElementById("graficoAccionesProyectado").innerHTML = "cargando"
     let prop = await nombreEmpresa;
-    if(!prop){
-      prop="Activo Exótico";
+    if (!prop) {
+      prop = "Activo Exótico";
     }
-    // Guardo el nombre de la empresa para usarlo en lína .118
 
-    let stock = document.getElementById("accion").value;
+
+    // Guardo el nombre de la empresa para usarlo en lína .118
     let frecuencia = document.getElementById("frecuencia").value;
     let periodo = document.getElementById("periodo").value;
 
@@ -45,8 +51,8 @@
     }
     getUrl = (stock, per, freq) => {
       //¿Como se esconde?
+      //Se usa otro token por limite de consulta de la api
       let token = '&apikey=V3M13AGJZDLJ7SM0';
-      let urlBase = "https://www.alphavantage.co/query?function=";
       if (per == "Diario") {
         let periodo = "TIME_SERIES_DAILY"
         return [`${urlBase}${periodo}&symbol=${stock}${token}`, "Time Series (Daily)"]
