@@ -168,7 +168,7 @@
           const xs = tf.tensor2d(x, [x.length, 1]);
           const ys = tf.tensor2d(y, [y.length, 1]);
 
-          await model.fit(xs, ys, { epochs: 450 });
+          await model.fit(xs, ys, { epochs: 1000 });
           if (!model) {
             document.getElementById("graficoAccionesProyectado").innerHTML = "Error recargar página"
             return 0
