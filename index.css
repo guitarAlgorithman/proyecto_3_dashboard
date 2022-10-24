@@ -1,7 +1,6 @@
 body{
     background-image: linear-gradient(to left, #e7e7e7, #c5c5c5);
     font-family: Georgia, 'Times New Roman', Times, serif;
-    /* background: #dbdada; */
 }
 h1{
     color: #bcbcbc;
@@ -15,25 +14,46 @@ h1{
     font-size: 30px;
     font-weight: bold;
     color: aliceblue;
- 
+}
+
+.bwhite{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 25px;
+    font-weight: bold;
+    transition: background 0.4s ease-out;
+    color: #363636;
+}
+.bwhite:hover{
+    background-position: 121px;
+    transform: scale(1.04);
+    transition: 0.2s;
 }
 
 #boton{
     background-image: linear-gradient(to left, #666666, #414141);
     font-weight: bold;
     border-color: #3d3d3d;
+    transition: background 0.3s ease-out;
 }
+#boton:hover{
+    background-position: 82px;
+    transform: scale(1.04);
+    transition: 0.2s;
+}
+
 
 .contenedorAPI{
-        display: flex;
-        flex-direction: row;
-        padding-top: 50px;
-        gap: 50px;
-        justify-content: center;
-        height: 450px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    gap: 50px;
+    justify-content: center;
+    height: 450px;
 }
 
-#graficoAccionesProyectado, #graficoAcciones{
+.graficoAccionesProyectado, .graficoAcciones{
     width: 800px;
     padding: 25px;
     background: #f3f3f3;
@@ -54,7 +74,6 @@ h1{
     width: 480px;
     padding: 20px;
     color: #2e2e2e;
-
 }
 
 .accion{
@@ -97,6 +116,74 @@ h1{
     padding-bottom: 15px;
 }
 
+/* MODO DARK */
+body.darkmode{
+    background: #2e2e2e;
+    color: #c5c5c5;
+}
+
+.inputsDark, .graficoAccionesDark, .graficoAccionesProyectadoDark{
+    background-image: linear-gradient(to left, #6f6f6f, #686868);
+    color: #d0d0d0;
+}
+
+.bdark{
+    background-image: linear-gradient(to left, #525252, #363636);
+    color: aliceblue;
+}
+
+/* FOOTER */
+footer{
+    background-image: linear-gradient(to left, #666666, #414141);
+    margin-top: 60px;
+}
+
+.footer h2{
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b5b3b3;
+}
+
+.footer a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.footer a:hover{
+    color: #b5b3b3;
+    transform: scale(1.05);
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.footer{
+    display: flex;
+    gap: 75px;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 55px;
+    margin: auto;
+    width: 900px;
+}
+
+.contacto, .informate{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: 300px;  
+    width: 300px;
+}
+
+.ayuda{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    height: 300px;
+    width: 150px;
+}
+
+/* MEDIAS */
 @media screen and (max-width: 1200px){
     .contenedorAPI{
         display: flex;
@@ -104,23 +191,41 @@ h1{
         align-items: center;
         height: auto;
     }
-    #graficoAccionesProyectado, #graficoAcciones{
+    .graficoAccionesProyectado, .graficoAcciones{
         height: 400px;
     }
+    .footer{
+        width: 850px;
+    }
+    
 }
 
 @media screen and (max-width: 990px){
-    #graficoAccionesProyectado, #graficoAcciones{
+    .graficoAccionesProyectado, .graficoAcciones{
         width: 730px;
+    }
+    .alphaNav{
+        font-size: 25px;
+    }
+    .footer{
+        width: 700px;
     }
 
 }
 @media screen and (max-width: 770px){
-    #graficoAccionesProyectado, #graficoAcciones{
+    .graficoAccionesProyectado, .graficoAcciones{
         width: 450px;
     }
     .inputs{
         width: 450px;
     }
-
+    .alphaNav{
+        font-size: 20px;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        padding-left: 100px;
+    }
 }
