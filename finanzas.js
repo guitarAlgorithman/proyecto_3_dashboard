@@ -220,7 +220,7 @@
           let chart2 = new ApexCharts(document.getElementById("graficoAccionesProyectado"), optionss);
           chart2.render();
 
-          document.getElementById("proximo").innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} USD </p>`
+          document.getElementById("proximo").innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} [En la unidad de moneda de corresponda]</p>`
         }
         learnLinear(xx, y);
       }
