@@ -3,6 +3,10 @@
   //Obtiene el elemento boton
   const boton = document.getElementById("boton")
 
+  //funcion de apoyo, retorna un elemento al azar de un array
+  function random_item(items){
+    return items[Math.floor(Math.random()*items.length)];
+  }
   //Obtiene el periodo... 
   let periodo = document.getElementById("periodo")
   //y lo desactiva si la funcion no esta en intraday
@@ -19,8 +23,8 @@
     // Consigo  el nombre de la Empresa desde API 
 
     let stock = document.getElementById("accion").value;
-    let token = '&apikey=U34CX5I5PKMD40BK';
-    //V3M13AGJZDLJ7SM0
+    //Este token busca obtener el nombre de la empresa y los detalles en la api
+    let token = random_item(['&apikey=U34CX5I5PKMD40BK','&apikey=U34CX5I5PKMD40BK','&apikey=UWG636FIC5KU9WFL','&apikey=3R61X21IN0YKPG24']);
     let urlBase = "https://www.alphavantage.co/query?function=";
     let info = "OVERVIEW"
     let url1 = [`${urlBase}${info}&symbol=${stock}${token}`]
@@ -50,9 +54,9 @@
       )
     }
     getUrl = (stock, per, freq) => {
-      //¿Como se esconde?
+
       //Se usa otro token por limite de consulta de la api
-      let token = '&apikey=V3M13AGJZDLJ7SM0';
+      let token = random_item(['&apikey=V3M13AGJZDLJ7SM0','&apikey=GT6OY7LGBYYCVW15','&apikey=BJG78FFVJWSSLCO4','&apikey=E3C8HTNZRKKOHBLP'])
       if (per == "Diario") {
         let periodo = "TIME_SERIES_DAILY"
         return [`${urlBase}${periodo}&symbol=${stock}${token}`, "Time Series (Daily)"]
@@ -82,7 +86,6 @@
 
 
     }
-    //let url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stock}&interval=30min&apikey=V3M13AGJZDLJ7SM0`;
     let url = getUrl(stock, periodo, frecuencia)
     //console.log(url[0])
     getData(url[0]).then(data => {
@@ -182,7 +185,7 @@
           }
 
           let ultimo = forecast[0].y
-          console.log(ultimo);
+          //console.log(ultimo);
           let tensor = model.predict(tf.tensor2d([parseFloat(ultimo)], [1, 1]));
           ultimo = parseFloat(tensor.dataSync()[0]).toFixed(2);
 
@@ -217,7 +220,7 @@
           let chart2 = new ApexCharts(document.getElementById("graficoAccionesProyectado"), optionss);
           chart2.render();
 
-          document.getElementById("proximo").innerHTML = `<p>El valor esperado promedio para mañana es: ${ultimo} USD </p>`
+          document.getElementById("proximo").innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} USD </p>`
         }
         learnLinear(xx, y);
       }
