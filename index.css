@@ -110,6 +110,12 @@ h1{
     margin-left: -133px;
 }
 
+.accionTexto{
+    display: flex;
+    gap: 15px;
+
+}
+
 .accionTexto, .periodoTexto, .frecuenciaTexto{
     display: flex;
     font-weight: bold;
