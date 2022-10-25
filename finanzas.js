@@ -168,7 +168,7 @@
           const xs = tf.tensor2d(x, [x.length, 1]);
           const ys = tf.tensor2d(y, [y.length, 1]);
 
-          await model.fit(xs, ys, { epochs: 1000 });
+          await model.fit(xs, ys, { epochs: 350 });
           if (!model) {
             document.getElementById("graficoAccionesProyectado").innerHTML = "Error recargar página"
             return 0
@@ -220,7 +220,7 @@
           let chart2 = new ApexCharts(document.getElementById("graficoAccionesProyectado"), optionss);
           chart2.render();
 
-          document.getElementById("proximo").innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} [En la unidad de moneda de corresponda]</p>`
+          document.getElementById("proximo").innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} [En la unidad de moneda que corresponda]</p>`
         }
         learnLinear(xx, y);
       }
