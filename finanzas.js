@@ -114,6 +114,9 @@
             data: valores
           }],
           chart: {
+            toolbar:{
+              show:false
+            },
             type: 'candlestick',
             height: 350
           },
@@ -168,7 +171,7 @@
           const xs = tf.tensor2d(x, [x.length, 1]);
           const ys = tf.tensor2d(y, [y.length, 1]);
 
-          await model.fit(xs, ys, { epochs: 350 });
+          await model.fit(xs, ys, { epochs: 500 });
           if (!model) {
             document.getElementById("graficoAccionesProyectado").innerHTML = "Error recargar página"
             return 0
@@ -200,6 +203,9 @@
             }
             ],
             chart: {
+              toolbar:{
+                show:false
+              },
               type: 'line',
               height: 350
             },
