@@ -4,6 +4,7 @@ const inputs = document.querySelector('.inputs');
 const graficoAcciones = document.querySelector('.graficoAcciones');
 const graficoAccionesProyectado = document.querySelector('.graficoAccionesProyectado');
 const bdark2 = document.querySelector('.bwhite')
+const valorEsperado = document.querySelector('.valorEsperado')
 
 bdark.addEventListener('click', e=>{
     body.classList.toggle('darkmode');
@@ -11,4 +12,5 @@ bdark.addEventListener('click', e=>{
     graficoAcciones.classList.toggle('graficoAccionesDark');
     graficoAccionesProyectado.classList.toggle('graficoAccionesProyectadoDark');
     bdark2.classList.toggle('bdark');
+    valorEsperado.classList.toggle('valorDark');
 });
