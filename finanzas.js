@@ -36,7 +36,7 @@
       });
 
     document.getElementById("graficoAcciones").innerHTML = ""
-    document.getElementById("graficoAccionesProyectado").innerHTML = "cargando"
+    document.getElementById("graficoAccionesProyectado").innerHTML = "Cargando proyección de valores..."
     let prop = await nombreEmpresa;
     if (!prop) {
       prop = "Activo Exótico";
@@ -173,7 +173,7 @@
 
           await model.fit(xs, ys, { epochs: 500 });
           if (!model) {
-            document.getElementById("graficoAccionesProyectado").innerHTML = "Error recargar página"
+            document.getElementById("graficoAccionesProyectado").innerHTML = "Ocurrió un error, favor recargar la página!"
             return 0
           }
           let forecast = [];
@@ -210,7 +210,7 @@
               height: 350
             },
             title: {
-              text: `Regresión lineal ${prop}`,
+              text: `Regresión lineal para ${prop}`,
               align: 'center'
             },
             yaxis: {
@@ -226,7 +226,7 @@
           let chart2 = new ApexCharts(document.getElementById("graficoAccionesProyectado"), optionss);
           chart2.render();
 
-          document.getElementById("proximo").innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} [En la unidad de moneda que corresponda]</p>`
+          document.getElementById("proximo").innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} (En la unidad de moneda que corresponda)</p>`
         }
         learnLinear(xx, y);
       }
