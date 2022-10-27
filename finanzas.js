@@ -24,7 +24,8 @@
 
     let stock = document.getElementById("accion").value;
     //Este token busca obtener el nombre de la empresa y los detalles en la api
-    let token = random_item(['&apikey=U34CX5I5PKMD40BK','&apikey=U34CX5I5PKMD40BK','&apikey=UWG636FIC5KU9WFL','&apikey=3R61X21IN0YKPG24']);
+    let token = random_item(['&apikey=U34CX5I5PKMD40BK','&apikey=U34CX5I5PKMD40BK','&apikey=UWG636FIC5KU9WFL','&apikey=3R61X21IN0YKPG24','&apikey=IEWGJV7AJ6LPB0Y4','&apikey=KMJIO4FE0CCC0U6A']);
+    //console.log(token);
     let urlBase = "https://www.alphavantage.co/query?function=";
     let info = "OVERVIEW"
     let url1 = [`${urlBase}${info}&symbol=${stock}${token}`]
@@ -56,7 +57,8 @@
     getUrl = (stock, per, freq) => {
 
       //Se usa otro token por limite de consulta de la api
-      let token = random_item(['&apikey=V3M13AGJZDLJ7SM0','&apikey=GT6OY7LGBYYCVW15','&apikey=BJG78FFVJWSSLCO4','&apikey=E3C8HTNZRKKOHBLP'])
+      let token = random_item(['&apikey=V3M13AGJZDLJ7SM0','&apikey=GT6OY7LGBYYCVW15','&apikey=BJG78FFVJWSSLCO4','&apikey=E3C8HTNZRKKOHBLP','&apikey=L9TOGDM571H8IPOI','&apikey=DCZYHSNB898FDXDN','&apikey=IV1DHS39MCUESNJY'])
+      //console.log(token);
       if (per == "Diario") {
         let periodo = "TIME_SERIES_DAILY"
         return [`${urlBase}${periodo}&symbol=${stock}${token}`, "Time Series (Daily)"]
@@ -92,14 +94,17 @@
       //console.log(data);
 
       if (!data[url[1]]) {
-        swal('ERROR', 'Ingrese un texto válido', 'error')
+        swal('ERROR', 'Ingrese un texto válido o se acabó el límite de consultas desde la API', 'error');
+        document.getElementById("graficoAccionesProyectado").innerHTML = "Ocurrió un error, favor recargar la página!";
+        document.getElementById("proximo").innerHTML = "";
+
       } else {
         let fechas = []
         let valores = []
         for (x in data[url[1]]) {
           fechas.push(x.split(" ")[0])
           valores.push({
-            'x': x.split(" "),
+            'x': x.split(" ")[0],
             'y': [parseFloat(data[url[1]][x]['1. open']),
             parseFloat(data[url[1]][x]['2. high']),
             parseFloat(data[url[1]][x]['3. low']),
@@ -188,6 +193,10 @@
           }
 
           let ultimo = forecast[0].y
+          if (!ultimo) {
+            document.getElementById("graficoAccionesProyectado").innerHTML = "Ocurrió un error, favor recargar la página!"
+            return 0
+          }
           //console.log(ultimo);
           let tensor = model.predict(tf.tensor2d([parseFloat(ultimo)], [1, 1]));
           ultimo = parseFloat(tensor.dataSync()[0]).toFixed(2);
@@ -224,7 +233,10 @@
           };
           document.getElementById("graficoAccionesProyectado").innerHTML = ""
           let chart2 = new ApexCharts(document.getElementById("graficoAccionesProyectado"), optionss);
-          chart2.render();
+          if(!chart2.render()){
+            document.getElementById("graficoAccionesProyectado").innerHTML = "Ocurrió un error, favor recargar la página!"
+            return 0
+          }
 
           document.getElementById("proximo").innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} (En la unidad de moneda que corresponda)</p>`
         }
