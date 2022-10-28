@@ -1,4 +1,4 @@
-const bdark = document.querySelector('#bdark', );
+const bdark = document.querySelector('#bdark');
 const body = document.querySelector('body');
 const inputs = document.querySelector('.inputs');
 const graficoAcciones = document.querySelector('.graficoAcciones');
@@ -15,4 +15,17 @@ bdark.addEventListener('click', e=>{
     bdark2.classList.toggle('bdark');
     valorEsperado.classList.toggle('valorDark');
     titulo.classList.toggle('tituloDark');
+    
+    const cambioModo = bdark2.classList.length;
+
+    if(cambioModo === 1){
+        document.querySelector('#bdark').innerHTML = 'Modo Oscuro';
+        }else{
+            document.querySelector('#bdark').innerHTML = 'Modo Claro'
+        }
 });
+
+
+
+   
+
