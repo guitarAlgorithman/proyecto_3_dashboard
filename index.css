@@ -31,7 +31,7 @@ body{
     color: #363636;
 }
 .bwhite:hover{
-    background-position: 121px;
+    background-position: 107px;
     transform: scale(1.04);
     transition: 0.2s;
 }
