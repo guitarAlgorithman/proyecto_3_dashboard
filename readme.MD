@@ -4,13 +4,14 @@ El siguiente trabajo se enmarca en el Bootcamp FullStack 2022 de la UDD.
 
 ## Dashboard
 
-El siguiente Dashboard realiza una consulta a la API [Alpha Vantage](https://www.alphavantage.co/) para consultar precios de activos como acciones, currencies, entre otras y graficarlos con la API [APEX Charts](https://apexcharts.com/). 
+El siguiente Dashboard realiza una consulta a la API [Alpha Vantage](https://www.alphavantage.co/) para consultar precios de activos como acciones, currencies, entre otras y graficarlos con la API [APEX Charts](https://apexcharts.com/).
+
 
 Finalmente de forma adicional, efectúa una serie de tiempo autoregresiva en base a la selección, buscando realizar un pronóstico (el algoritmo corre en el FrontEnd).
 
 ## Funcionamiento y limiantes
 
-Se escrie el Activo a analizar en la parte de acción mediante su símbolo. (Algunos ejemplos puden ser AAPL, IBM, MSFT, BTCUSD, USDCLP, entre otros)
+Se escrie el Activo a analizar en la parte de acción mediante su símbolo. (Algunos ejemplos puden ser AAPL, IBM, MSFT, BTCUSD, USDCLP, entre otros). Para las fracuencias mensuales y diarias, solamente se tiene la frecuenca definida por la API. Para los precios Intraday, se pueden definir frecuencias de 15 minutos, 30 minutos y 60 minutos a mostras.
 
 Cabe destacar, que por un tema de la gratuidad de la API [Alpha Vantage](https://www.alphavantage.co/) existe un número limitado de 5 consultar por minuto.
 
