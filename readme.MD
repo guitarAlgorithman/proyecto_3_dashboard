@@ -18,7 +18,7 @@ Cabe destacar, que por un tema de la gratuidad de la API [Alpha Vantage](https:/
 
 El Layout desarrollado tiene el siguinete esquema:
 
-[Layout Básico](./images/layout-basico.jpg png "Imagen") 
+![Layout Básico](./images/layout-basico.jpg png "Imagen") 
 
 El funcionamiento responsive busca que se convierta en una columna.
 
