@@ -10,7 +10,7 @@ Finalmente, y de forma adicional, se efectúa una serie de tiempo autoregresiva 
 
 ## Funcionamiento y limitantes
 
-Se ingresa el Activo a analizar en el formulario de la parte superior, en la sección "Acción" mediante su símbolo (Algunos ejemplos puden ser AAPL, IBM, MSFT, BTCUSD, USDCLP, entre otros). Para las frecuencias mensuales y diarias, solamente se tiene la frecuencia definida por la API. Para los precios Intraday, se pueden definir frecuencias de 15, 30 y 60 minutos para mostrar.
+Se ingresa el Activo a analizar en el formulario de la parte superior, en la sección "Acción" mediante su símbolo (Algunos ejemplos pueden ser AAPL, IBM, MSFT, BTCUSD, USDCLP, entre otros). Para las frecuencias mensuales y diarias, solamente se tiene la frecuencia definida por la API. Para los precios Intraday, se pueden definir frecuencias de 15, 30 y 60 minutos para mostrar.
 
 Cabe destacar que, por un tema de la gratuidad de la API [Alpha Vantage](https://www.alphavantage.co/), existe un número limitado de 5 consultas por minuto.
 
