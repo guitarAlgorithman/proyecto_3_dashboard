@@ -22,10 +22,6 @@ El Layout desarrollado tiene el siguiente esquema:
 
 El funcionamiento responsivo busca que los elementos de la página sean dispuestos en una columna.
 
-## Repositorio en GITHub del proyecto
-
-[Link al proyecto](https://github.com/guitarAlgorithman/proyecto_3_dashboard)
-
 ## Página del proyecto publicada
 
 [Link](https://guitaralgorithman.github.io/proyecto_3_dashboard/)
