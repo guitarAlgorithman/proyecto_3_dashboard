@@ -207,7 +207,7 @@ const learnLinear = async (data, url, prop) => {
 
   document.getElementById(
     "proximo"
-  ).innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} (En la unidad de moneda que corresponda)}</p>`;
+  ).innerHTML = `<p>El valor esperado en base a su selección es: ${ultimo} (En la unidad de moneda que corresponda)</p>`;
 };
 
 
