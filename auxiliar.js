@@ -264,4 +264,4 @@ const plot1 = (data, url, prop) => {
 };
 
 //exportacion de los modulos
-export { getData, getUrl, random_item, learnLinear, plot1, urlBase,getNombre };
+export { getData, getUrl, random_item, learnLinear, plot1 ,getNombre };
