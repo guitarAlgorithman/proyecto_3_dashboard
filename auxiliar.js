@@ -50,7 +50,7 @@ const getNombre = async (stock) => {
 };
 
 
-//Promesa que cosutla la API y retorna un archivo JSON
+//Promesa que cosulta la API y retorna un archivo JSON
 const getData = (url) => {
   return Promise.resolve(fetch(url).then((res) => res.json()));
 };
