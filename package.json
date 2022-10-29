@@ -1,12 +1,20 @@
 {
   "name": "proyecto_3_dashboard",
   "version": "1.0.0",
-  "description": "",
+  "description": "El siguiente proyecto se enmarca en el Bootcamp FullStack 2022 de la UDD.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "author": "",
-  "license": "ISC"
-
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guitarAlgorithman/proyecto_3_dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guitarAlgorithman/proyecto_3_dashboard/issues"
+  },
+  "homepage": "https://github.com/guitarAlgorithman/proyecto_3_dashboard#readme"
 }
