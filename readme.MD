@@ -17,15 +17,15 @@ Cabe destacar, que por un tema de la gratuidad de la API [Alpha Vantage](https:/
 
 ## Layout básico
 
-El Layout desarrollado tiene el siguinete esquema:
+El Layout desarrollado tiene el siguiente esquema:
 
-![](./images/layout-basico.jpg png "Imagen") 
+![](./images/layout-basico.jpg) 
 
 El funcionamiento responsive busca que se convierta en una columna.
 
 ## GITHub del proyecto
 
-[Commits](https://github.com/guitarAlgorithman/proyecto_3_dashboard)
+[Link al proyecto](https://github.com/guitarAlgorithman/proyecto_3_dashboard)
 
 ## Página del proyecto publicada
 
@@ -33,6 +33,6 @@ El funcionamiento responsive busca que se convierta en una columna.
 
 ## Participantes
 
-[Mario Sanhueza](https://github.com/MarioASG)
-[Nicolas Meneses](https://github.com/BootNM)
-[Gustavo Henriquez](https://github.com/guitarAlgorithman)
+- [Mario Sanhueza](https://github.com/MarioASG)
+- [Nicolas Meneses](https://github.com/BootNM)
+- [Gustavo Henriquez](https://github.com/guitarAlgorithman)
