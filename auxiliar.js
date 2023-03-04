@@ -4,24 +4,13 @@ let urlBase = "https://www.alphavantage.co/query?function=";
 //Conjunto de tokens 1
 let setTokens1 = [
   [
-    "&apikey=U34CX5I5PKMD40BK",
-    "&apikey=U34CX5I5PKMD40BK",
-    "&apikey=UWG636FIC5KU9WFL",
-    "&apikey=3R61X21IN0YKPG24",
-    "&apikey=IEWGJV7AJ6LPB0Y4",
-    "&apikey=KMJIO4FE0CCC0U6A",
+    "&apikey=V3M13AGJZDLJ7SM0",
   ],
 ];
 
 //Conjunto de tokens 2
 let setTokens2 = [
-  "&apikey=V3M13AGJZDLJ7SM0",
-  "&apikey=GT6OY7LGBYYCVW15",
-  "&apikey=BJG78FFVJWSSLCO4",
-  "&apikey=E3C8HTNZRKKOHBLP",
-  "&apikey=L9TOGDM571H8IPOI",
-  "&apikey=DCZYHSNB898FDXDN",
-  "&apikey=IV1DHS39MCUESNJY",
+  "&apikey=U34CX5I5PKMD40BK",
 ];
 
 
